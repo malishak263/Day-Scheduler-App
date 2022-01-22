@@ -1,0 +1,30 @@
+
+To use icon fonts in your Web pages, you must include their stylesheet:
+
+F.e. from the main CSS file:
+
+@import url("css/iconfontname.css");
+
+or from a page:
+
+<link rel="stylesheet" href="css/iconfontname.css" type="text/css">
+
+and their Webfontfiles: EOT, TTF, WOFF, and SVG.
+
+-------------------------------------------------------------------
+
+Using <span> or <i> tags you can render the icon you want, f.e.:
+
+<span class="typcn-add-to-list"></span> and <i class="typcn-add-to-list"></i> will render the icon Add-to-list.
+
+Some icon fonts can be customized to be exactly what you like. To do this visit one of the following sites to generate your own icon fonts with the icons you prefer.
+
+1. IcoMoon - https://icomoon.io/app
+
+2. Fontastic - http://www.fontastic.me
+
+3. Fontello - http://fontello.com
+
+
+Greetings from
+SimplytheBest Fonts
