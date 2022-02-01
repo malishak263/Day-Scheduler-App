@@ -106,6 +106,11 @@ $('document').ready(() => {
         event.preventDefault();
     }
 
+    showTodopad = (event) => {
+
+        alert('show Todo');
+        event.preventDefault();
+    }
 
 
 });
