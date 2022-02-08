@@ -75,7 +75,6 @@ class Accounts {
                     } else {
                         $('#login_page').hide();
                         showAlert(data.message);
-
                         setTimeout(() => {
                             $('#login_page').show();
                         }, 2000);

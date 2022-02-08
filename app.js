@@ -6,6 +6,8 @@ var route_savenote = require('./routes/savenoteApi');
 var route_getallnotes = require('./routes/getallnotesApi');
 var route_updatenote = require('./routes/updatenoteApi');
 var route_deletenote = require('./routes/deletenoteApi');
+var route_addtask=require('./routes/addtaskApi');
+var route_getalltasks = require('./routes/getalltasksApi');
 
 const app = express();
 const port = 3000;
@@ -19,6 +21,8 @@ app.use('/savenote', route_savenote);
 app.use('/getallnotes', route_getallnotes);
 app.use('/updatenote', route_updatenote);
 app.use('/deletenote', route_deletenote);
+app.use('/addtask',route_addtask);
+app.use('/getalltasks', route_getalltasks)
 
 app.get('/', (req, res) => {
     res.render('index.html');

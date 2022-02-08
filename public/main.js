@@ -1,7 +1,7 @@
 $('document').ready(() => {
     accounts = new Accounts();
     notes = new Notes();
-
+    tasks = new Tasks();
 
     $('#signupBtn').click(() => {
         accounts.signup();
@@ -11,6 +11,7 @@ $('document').ready(() => {
         accounts.login();
         setTimeout(() => {
             notes.getAllNotes();
+            tasks.getAllTasks();
         }, 1000);
     });
 
@@ -30,5 +31,11 @@ $('document').ready(() => {
         $(`#${noteid}`).parentsUntil('#play_ground').remove();
         event.target.style.color = '#062a5a';
     }
+
+    $('#add-event').click((event) => {
+        tasks.addTask();
+        event.preventDefault();
+
+    });
 
 });

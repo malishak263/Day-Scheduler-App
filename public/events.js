@@ -1,5 +1,4 @@
 $('document').ready(() => {
-
     setTimeout(() => {
         $('#timer').html('GO!');
         setTimeout(() => {
@@ -109,8 +108,15 @@ $('document').ready(() => {
     showTodopad = (event) => {
 
         alert('show Todo');
+        $('#wrapper-container2').hide();
+        $('#wrapper-container3').show();
         event.preventDefault();
     }
 
+
+$('#add-event').click((event)=>{
+    event.preventDefault();
+    
+});
 
 });

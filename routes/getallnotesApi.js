@@ -5,6 +5,7 @@ var router = express.Router();
 router.post('/', (req, res) => {
 
     var getAllNotes = (account) => {
+        
         var result = {};
 
         notes.find({ account: account }, (err, resp) => {
