@@ -36,8 +36,8 @@ class Notes {
                 account: this.account,
             },
             success: (data) => {
-                var list = data;
-                var render = '';
+                let list = data;
+                let render = '';
 
                 list.forEach(i => {
 
@@ -52,7 +52,7 @@ class Notes {
                         <div class="flex justify-center items-center w-full h-full m-2 bg-white ">
                             <textarea placeholder="note here.. " onblur="saveNote(event);" id="new_note_pad" class="flex w-full h-full px-5 py-5 rounded-lg shadow-2xl "></textarea>
                         </div>
-                    </div>
+                    </div>  
                     <div class="flex w-1/3 h-1/3  " id="add_btns">
                         <div  class="flex justify-center items-center m-2 w-full h-full bg-teal-100 rounded-lg shadow-2xl ">
                             <button title="add new note" id="add_note_btn" type="submit " onclick="showNotepad(event);"   class=" bg-blue-400 hover:bg-blue-800 rounded-full h-16 w-16 shadow-lg "><i class="typcn typcn-edit text-xl text-white "></i></button>

@@ -16,10 +16,11 @@
     <script src="userAccounts.js"></script>
     <script src="notes.js"></script>
     <script src="main.js"></script>
+    <script src="eventScheduler.js"></script>
 </head>
 
 <body class="bg-gray-700">
-    <div class="flex h-screen justify-center items-center block" id="wrapper-container1">
+    <!--  <div class="flex h-screen justify-center items-center block" id="wrapper-container1">
         <div class="bg-white w-3/6 py-3 px-5 flex justify-center items-center  rounded-lg shadow-2xl" id="welcome_screen">
             <label class="text-xl mr-12">Your Personal Scheduler App</label>
             <div class="h-16 w-16 bg-blue-900 rounded-full flex  justify-center items-center text-white shadow-xl" id="timer_circle">
@@ -96,7 +97,7 @@
                 </div>
 
                 <div ondragover="allowDrop(event)" ondrop="drop(event);" class="flex justify-center items-center p-3 text-blue-800 hover:text-blue-800 mt-16 w-full h-24 "><i class="typcn typcn-trash text-6xl "></i></div>
-                <div class="text-blue-600 hover:text-blue-400 mt-20"><i class="typcn typcn-home text-xl " onclick="home(event)"></i> Home</div>
+                <div class="text-blue-600 hover:text-blue-400 mt-20"><i class="typcn typcn-home text-xl" onclick="home(event)"></i> Home</div>
                 <div class="text-blue-600 hover:text-blue-800 "><i class="typcn typcn-cog-outline text-xl "></i> Settings</div>
                 <div class="hover:text-blue-800 text-sm " id="developer">
                     <b><u>About Developer</u></b><br>
@@ -107,9 +108,72 @@
             </div>
         </div>
 
-
-
         <div id="play_ground" class="h-screen flex flex-wrap float-right justify-start overflow-scroll w-4/5 bg-white ">
+        </div>
+    </div> -->
+
+    <div id="wrapper-container3" class="h-screen bg-white p-5 w-full">
+        <div class="w-full h-20  p-5 flex flex-wrap items-center text-4xl justify-center">
+            <h2>Scheduler</h2>
+        </div>
+
+        <div class="w-full p-5 flex justify-end">
+            <div class="flex w-2/3 justify-center p-5 items-center">
+                <div id="task-view" class="w-full">
+                    <table class="w-1/3 border border-blue-400 p-2 rounded flex">
+                        <tr class="w-full">
+                            <td class="w-1/3 flex items-center">task</td>
+                            <td class="w-1/3 flex items-center justify-center">start time</td>
+                            <td class="w-1/3 flex items-center justify-center">end date</td>
+                            <td class="w-1/3 flex items-center justify-center">end time</td>
+                        </tr>
+                        <tr class="w-full">
+                            <td class="w-1/3 flex items-center justify-center">1</td>
+                            <td class="w-1/3 flex items-center justify-center">2</td>
+                            <td class="w-1/3 flex items-center justify-center">3</td>
+                            <td class="w-1/3 flex items-center justify-center">4</td>
+                            <td class="w-1/3 flex items-center justify-center">5</td>
+                        </tr>
+                        <tr class="w-full">
+                            <td class="w-1/3 flex items-center justify-center ">6</td>
+                            <td class="w-1/3 flex items-center justify-center ">7</td>
+                            <td class="w-1/3 flex items-center justify-center ">8</td>
+                            <td class="w-1/3 flex items-center justify-center ">9</td>
+                            <td class="w-1/3 flex items-center justify-center ">10</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="flex w-1/3 rounded-tr-lg shadow-2xl justify-center p-5 items-center ">
+                <form action=" " method="post " class="w-2/3 ">
+                    <div id=" " class=" ">
+                        <label for="task " class="text-sm ">task:</label>
+                        <br>
+                        <input type="text " name="task " id="task " placeholder="... " class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                    </div>
+                    <div id=" " class=" ">
+                        <label class="text-sm ">start:</label>
+                        <br>
+                        <input type="date " name="start_date " id="start_date " placeholder="date... " class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                        <input type="time " name="start_time " id="start_time " placeholder="time... " class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                    </div>
+                    <div id=" " class=" ">
+                        <label class="text-sm ">end:</label>
+                        <br>
+                        <input type="date " name="end_date " id="end_date " placeholder="date... " class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                        <input type="time " name="end_time " id="end_time " placeholder="time... " class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                    </div>
+                    <div class="flex justify-around ">
+                        <button type="submit " id="add-event " class="my-2 py-1 px-2 border rounded-lg w-3/6 bg-blue-400 text-white hover:bg-blue-800 "><i class="typcn typcn-input-checked text-xl "></i>Set</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="flex w-full h-32 justify-end items-end ">
+            <button type="submit " class="bg-blue-400 hover:bg-blue-800 text-white text-xl rounded-full h-16 w-16 shadow-lg ml-1 "><i class="typcn typcn-plus "></i></button>
         </div>
     </div>
 
