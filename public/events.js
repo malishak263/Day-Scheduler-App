@@ -49,8 +49,6 @@ $('document').ready(() => {
     }
 
 
-
-
     $('#add_to_do_btn').click((event) => {
         alert('to do');
         event.preventDefault();
@@ -58,7 +56,7 @@ $('document').ready(() => {
 
 
 
-    $('#show_dashboard').click((event) => {
+    $('#show_notes').click((event) => {
 
         if ($('#acc_logged').html() != '####') {
             $('#wrapper-container2').show();
@@ -105,18 +103,39 @@ $('document').ready(() => {
         event.preventDefault();
     }
 
-    showTodopad = (event) => {
+    showScheduler = (event) => {
 
-        alert('show Todo');
-        $('#wrapper-container2').hide();
-        $('#wrapper-container3').show();
+        if ($('#acc_logged').html() != '####') {
+            $('#wrapper-container1').hide();
+            $('#wrapper-container3').show();
+        } else {
+            showAlert('please login first');
+        }
+
         event.preventDefault();
     }
 
+    $('#scheduler_back').click((event) => {
+        $('#wrapper-container1').show();
+        $('#wrapper-container3').hide();
+        event.preventDefault();
+    });
 
-$('#add-event').click((event)=>{
-    event.preventDefault();
-    
-});
+    $('#add-event').click((event) => {
+        event.preventDefault();
+
+    });
+
+    donecancelShow = (event, rowid) => {
+        document.getElementById(`${rowid}+'btns'`).style.display = 'block';
+        event.preventDefault();
+    }
+    donecancelHide = (event, rowid) => {
+        document.getElementById(`${rowid}+'btns'`).style.display = 'none';
+        event.preventDefault();
+
+    }
+
+
 
 });

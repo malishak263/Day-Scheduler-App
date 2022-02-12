@@ -44,7 +44,7 @@ class Notes {
                     var noteid = i.id;
                     render += `<div class="flex w-1/3 h-1/3">`;
                     render += `<div class="flex justify-center items-center  w-full m-2 bg-white">
-                            <textarea  onchange="updateNote(event,${noteid});" id="${i.id}"class="flex w-full h-full px-5 py-5 rounded-lg shadow-2xl">${i.note}</textarea>
+                            <textarea  onchange="updateNote(event,${noteid});" id="${i.id}" class="flex w-full h-full px-5 py-5 rounded-lg shadow-2xl">${i.note}</textarea>
                         </div>`;
                     render += `</div>`;
                 });
@@ -55,9 +55,9 @@ class Notes {
                     </div>  
                     <div class="flex w-1/3 h-1/3  " id="add_btns">
                         <div  class="flex justify-center items-center m-2 w-full h-full bg-teal-100 rounded-lg shadow-2xl ">
-                            <button title="add new note" id="add_note_btn" type="submit " onclick="showNotepad(event);"   class=" bg-blue-400 hover:bg-blue-800 rounded-full h-16 w-16 shadow-lg "><i class="typcn typcn-edit text-xl text-white "></i></button>
-                            <button title="add new to do" id="add_to_do_btn" type="submit " onclick="showTodopad(event);" draggable="true" ondragstart="drag(event)" class=" bg-blue-400 hover:bg-blue-800 rounded-full h-16 w-16 shadow-lg ml-1 "><i class="typcn typcn-input-checked text-xl text-white "></i></button>
-                        </div>
+                            <button title="add new note" id="add_note_btn" type="submit " onclick="showNotepad(event);"   class="bg-blue-400 hover:bg-blue-800 rounded-full h-16 w-16 shadow-lg "><i class="typcn typcn-edit text-xl text-white "></i></button>
+                            <button id="notes_back" type="submit"  onclick="home(event)" class="bg-blue-400 hover:bg-blue-800 text-white text-xl rounded-full h-16 w-16 shadow-lg ml-1"><i class="typcn typcn-arrow-back"></i></button>
+                            </div>
                     </div>`;
 
                 $('#play_ground').html(render);

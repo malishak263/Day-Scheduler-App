@@ -29,7 +29,8 @@ class Tasks {
                     end_time: this.end_time
                 },
                 success: (data) => {
-                    alert(data.message);
+                    //alert(data.message);
+                    this.getAllTasks();
                 },
                 fail: () => {
                     alert('failed');
@@ -56,14 +57,30 @@ class Tasks {
                 var render='';
 
                     tasklist.forEach(i => {
-
-                        var taskid = i.id;
-
-                        render += ``;
-                        render += `<div class="flex justify-center items-center  w-full m-2 bg-white">
-                            <textarea  onchange="updateNote(event,${taskid});" id="${i.id}"class="flex w-full h-full px-5 py-5 rounded-lg shadow-2xl">${i.note}</textarea>
-                        </div>`;
-                        render += `</div>`;
+                        render += `<div onmouseenter="donecancelShow(event,${i.id});" onmouseleave="donecancelHide(event,${i.id});">
+                        <table class="border rounded-lg w-full p-3">
+                            <caption class="text-black w-full p-2 text-lg">${i.task}</caption>
+                            <tr id="theader" class="w-full">
+                                <th class="p-1 ">start date</th>
+                                <th class="p-1 ">start time</th>
+                                <th class="p-1">end date</th>
+                                <th class="p-1">end time</th>
+                            </tr>
+                            <tr class="w-full">
+                                <td class="p-1 text-center">${i.start_date}</th>
+                                <td class="p-1 text-center">${i.start_time}</th>
+                                <td class="p-1 text-center">${i.end_date}</th>
+                                <td class="p-1 text-center">${i.end_time}</th>
+                            </tr>
+                        </table>
+                            <div class="w-full  hidden" id="${i.id}+'btns'" >
+                                <div class="flex justify-center mx-auto">
+                                        <button type="submit" id="" class="w-1/3 border rounded-lg bg-blue-400 text-white hover:bg-blue-800 "><i class="typcn typcn-input-checked text-xl "></i>done</button>
+                                        <button type="submit" id="" class="w-1/3 border rounded-lg bg-red-600 text-white hover:bg-red-900 "><i class="typcn typcn-trash text-xl "></i>cancel</button>
+                                </div>
+                             </div>
+                             </div>`;
+                     $('#tablediv').html(render);
                     });
 
                 },
