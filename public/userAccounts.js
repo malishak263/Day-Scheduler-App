@@ -11,8 +11,8 @@ class Accounts {
                 url: '/signup',
                 method: 'post',
                 data: {
-                    username: this.username,
-                    password: this.password
+                    username: this.username.trim(),
+                    password: this.password.trim()
                 },
                 success: (data) => {
                     //alert(data.message);
@@ -56,8 +56,8 @@ class Accounts {
                 url: '/login',
                 method: 'post',
                 data: {
-                    username: this.username,
-                    password: this.password
+                    username: this.username.trim(),
+                    password: this.password.trim()
                 },
                 success: (data) => {
 
