@@ -122,10 +122,17 @@ $('document').ready(() => {
     });
 
     $('#add-event').click((event) => {
+        $('#addEvtForm').hide();
+        $('#addEvtFormTrigger').show();
         event.preventDefault();
 
     });
+    $('#showAddEvtForm').click((event) => {
+        $('#addEvtForm').show();
+        $('#addEvtFormTrigger').hide();
+        event.preventDefault();
 
+    });
     donecancelShow = (event, rowid) => {
         document.getElementById(`${rowid}+'btns'`).style.display = 'block';
         event.preventDefault();
@@ -135,7 +142,6 @@ $('document').ready(() => {
         event.preventDefault();
 
     }
-
 
 
 });

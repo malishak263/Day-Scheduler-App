@@ -11,85 +11,82 @@
     <script src="events.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tailwind/tailwind-all.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="typicons/typicon.min.css">
+    <script src="./caleandar-master/caleandar-master/js/caleandar.js"></script>
+    <link rel="stylesheet" href="./caleandar-master/caleandar-master/css/theme1.css">
+    <link rel="stylesheet" href="./caleandar-master/caleandar-master/css/theme2.css">
     <script src="userAccounts.js"></script>
     <script src="notes.js"></script>
     <script src="main.js"></script>
     <script src="eventScheduler.js"></script>
 </head>
 
-<body>
-    <div class="flex justify-center items-center" id="wrapper-container1">
-
-        <div class="h-screen">
-
-        </div>
-
-        <div class="flex items-center justify-center bg-white w-1/3 py-3 px-1 rounded-lg shadow-2xl" id="welcome_screen">
+<body class="bg-white">
+    <div class="flex justify-center items-center bg-gray-800 h-screen p-1 md:p-2 lg:p-4 xl:p-5" id="wrapper-container1">
+        <div class="flex items-center justify-center bg-white w-full sm-3/4 md:w-1/4 lg:w-1/2  text-sm md:text-sm  py-3 px-1 rounded-lg shadow-2xl" id="welcome_screen">
             <label class="">Your Personal Scheduler App</label>
-            <div class="h-16 ml-5 w-16 bg-blue-800 rounded-full flex  justify-center items-center text-white" id="timer_circle">
+            <div class="h-16 ml-2 w-16 bg-gray-800 rounded-full flex  justify-center items-center text-white" id="timer_circle">
                 <div id="timer">Ready?</div>
             </div>
 
         </div>
 
 
-        <div class="bg-white w-3/6 py-3 px-5 rounded-lg shadow-2xl hidden" id="landing_page">
-            <div class="flex justify-between bg-blue-300 p-3  rounded text-white">
+        <div class="bg-white w-full sm:w-3/4 md:w-2/3 lg:w-2/3 py-3 px-1 md:p-2 lg:p-4 xl:p-5 rounded-lg shadow-2xl hidden" id="landing_page">
+            <div class="flex justify-center sm:justify-between bg-blue-300 p-1  md:p-2 lg:p-3 xl:p-4  rounded text-white">
                 <label>Day Scheduler</label>
-                <a class="text-xs">keep organised</a>
+                <a class="text-xs hidden sm:block">keep organised</a>
             </div>
 
-            <div class="mt-2 flex text-gray-700 p-3 bg-gray-200  mx-auto justify-center w-5/6 text-center">
+            <div class="mt-2 flex text-gray-700 p-1 md:p-2 lg:p-3 text-sm bg-gray-200  mx-auto justify-center w-5/6 text-center">
                 "Do not manage your time, manage your focus "- Robin Sharma
             </div>
 
             <div class="flex my-2 bg-gray-200 px-3 py-1 justify-between items-center rounded">
                 <div>
-                    <button type="button" class="my-2 py-1 px-2 border rounded-lg shadow-lg bg-blue-400 text-white hover:outline-none hover:bg-blue-800" id="showLogin"><i class="typcn typcn-lock-open text-xl"></i></button>
-                    <button type="button" class="my-2 py-1 px-2 border rounded-lg shadow-lg bg-blue-400 text-white hover:outline-none hover:bg-blue-800" id="showSignup"><i class="typcn typcn-user-add text-xl"></i></button>
+                    <button type="button" class="my-1 py-1 px-2 border rounded-lg shadow-lg bg-blue-400 text-white hover:outline-none hover:bg-gray-800" id="showLogin"><i class="typcn typcn-lock-open text-sm"></i></button>
+                    <button type="button" class="my-1 py-1 px-2 border rounded-lg shadow-lg bg-blue-400 text-white hover:outline-none hover:bg-gray-800" id="showSignup"><i class="typcn typcn-user-add text-sm"></i></button>
                 </div>
 
-                <button type="button" class="my-2 py-1  px-2 border w-1/3 rounded-lg shadow-lg hover:bg-blue-400 text-white hover:outline-none bg-blue-800" id="show_notes"><i class="typcn typcn-edit text-xl"></i></button>
-                <button type="button" class="my-2 py-1  px-2 border w-1/3 rounded-lg shadow-lg hover:bg-blue-400 text-white hover:outline-none bg-blue-800" id="show_scheduler" onclick="showScheduler(event);"><i class="typcn typcn-input-checked text-xl"></i></button>
+                <button type="button" class="my-1 py-1  px-2 border w-1/4 sm:w-1/3 rounded-lg shadow-lg hover:bg-blue-400 text-white hover:outline-none bg-gray-800" id="show_notes"><i class="typcn typcn-edit text-sm "></i></button>
+                <button type="button" class="my-1 py-1  px-2 border w-1/4 sm:w-1/3 rounded-lg shadow-lg hover:bg-blue-400 text-white hover:outline-none bg-gray-800" id="show_scheduler" onclick="showScheduler(event);"><i class="typcn typcn-input-checked text-sm"></i></button>
             </div>
-            <p class="mt-2 text-xs text-center"><span id="who_is_logged">Sign in to proceed and keep your day organised</span></p>
+            <p class="mt-2  text-xs text-center"><span id="who_is_logged">Sign in to proceed and keep your day organised</span></p>
         </div>
 
 
-        <div class="bg-white w-2/6 py-5 px-5 rounded-lg border rounded-lg shadow-3xl flex justify-center items-center text-center  hidden" id="login_page">
-            <label class="m-2 text-lg text-blue-900">Sign In</label>
+        <div class="bg-white w-2/3 sm:w-2/3 md:w-1/3 pt-5 px-5 text-sm rounded-lg border rounded-lg shadow-3xl flex justify-center items-center text-center  hidden" id="login_page">
+            <label class="m-2 text-sm text-blue-900">Sign In</label>
             <div class="">
                 <form method="POST" action="">
-                    <input type="text" placeholder="Username..." autocomplete="off" class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded  outline-none border border-blue-300" name="login_name" id="login_name">
-                    <input type="password" placeholder="Password..." autocomplete="off" class="mt-3 px-5 py-2 w-full placeholder-gray-600 rounded  outline-none border border-blue-300" name="login_password" id="login_password">
+                    <input type="text" placeholder="Username..." autocomplete="off" class="mt-2 px-1 sm:px-3 md:px-4 lg:px-5 py-2 w-full placeholder-gray-600 rounded  outline-none border border-blue-300" name="login_name" id="login_name">
+                    <input type="password" placeholder="Password..." autocomplete="off" class="mt-3 px-1 sm:px-3 md:px-4 lg:px-5 py-2 w-full placeholder-gray-600 rounded  outline-none border border-blue-300" name="login_password" id="login_password">
                     <div class="flex justify-around ">
-                        <button type="submit" class="my-2 py-1 px-2 border rounded-lg  w-3/6 bg-blue-400 text-white hover:bg-blue-800 " id="loginBtn"><i class="typcn typcn-lock-open text-xl"></i> Submit</button>
+                        <button type="submit" class="my-2 py-1 px-1 sm:px-2 border rounded-lg  w-1/2 bg-blue-400 text-white hover:bg-gray-800 " id="loginBtn"><i class="typcn typcn-lock-open text-sm"></i> Submit</button>
                     </div>
-                    <i class="typcn typcn-cancel text-red-500 text-2xl"></i>
+                    <i class="typcn typcn-cancel text-red-500 text-sm"></i>
                     <a href="#" class="text-red-500 text-xs" id="loginCancel">Cancel</a>
                 </form>
             </div>
         </div>
 
-        <div class="bg-white w-2/6 py-5 px-5 rounded-lg border rounded-lg shadow-3xl flex block justify-center items-center text-center absolute hidden " id="signup_page">
-            <label class="m-2 text-lg text-blue-900 ">Sign Up</label>
+        <div class="bg-white w-2/3 sm:w-2/3 md:w-1/3 pt-5 px-5  rounded-lg border rounded-lg shadow-3xl flex block justify-center items-center text-center absolute hidden " id="signup_page">
+            <label class="m-2 text-sm text-blue-900 ">Sign Up</label>
             <div class=" ">
                 <form>
-                    <input type="text" placeholder="Username..." autocomplete="off" clas=" mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 " id="signup_name">
-                    <input type="password " placeholder="Password... " autocomplete="off " class=" mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 " id="signup_password">
+                    <input type="text" placeholder="Username..." autocomplete="off" class=" mt-2 px-1 sm:px-3 md:px-4 lg:px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 " id="signup_name">
+                    <input type="password" placeholder="Password... " autocomplete="off " class=" mt-2 px-1 sm:px-3 md:px-4 lg:px-5 py-2  w-full placeholder-gray-600 rounded outline-none border border-blue-300 " id="signup_password">
                     <div class="flex justify-around ">
 
-                        <button type="submit" class="my-2 py-1 px-2 border rounded-lg w-3/6 bg-blue-400 text-white hover:bg-blue-800 " id="signupBtn "><i class="typcn typcn-user-add text-xl "></i> Submit</button>
+                        <button type="submit" class="my-2 py-1 px-2 border rounded-lg w-3/6 bg-blue-400 text-white hover:bg-gray-800 " id="signupBtn "><i class="typcn typcn-user-add text-sm "></i> Submit</button>
                     </div>
-                    <i class="typcn typcn-cancel text-red-500 text-2xl "></i>
+                    <i class="typcn typcn-cancel text-red-500 text-sm "></i>
                     <a href="# " class="text-red-500 text-xs" id="signupCancel">Cancel</a>
                 </form>
             </div>
         </div>
 
-        <div class="bg-white w-2/6 p-3 flex justify-center items-center text-center absolute hidden rounded-lg shadow-2xl " id="alert_result">
+        <div class="bg-white w-3/4 sm:1/3 md:w-1/3 lg:1/3 xl:/3 p-3 flex justify-center items-center text-center absolute hidden rounded-lg shadow-2xl " id="alert_result">
             <label id="result_msg">{resultMsg}</label>
         </div>
     </div>
@@ -99,19 +96,19 @@
     <div class="bg-blue-100 flex hidden " id="wrapper-container2">
         <div id="menu_bar" class="flex w-1/5 h-screen justify-center bg-white shadow-2xl px-5 py-3 float-left absolute ">
             <div>
-                <label class="text-blue-900 text-lg ml-8 "><u>Day Scheduler </u><i class="typcn typcn-edit text-2xl "></i></label>
+                <label class="text-blue-900 text-sm ml-8 "><u>Day Scheduler </u><i class="typcn typcn-edit text-sm "></i></label>
                 <input type="search " name="search " id="search " placeholder="search " class="px-5 my-5 py-2 w-5/6 placeholder-gray-600 rounded outline-none border border-blue-300 ">
-                <div class="flex justify-center text-center w-5/6 my-5 py-2 px-2 border rounded-lg shadow-lg bg-teal-200 text-blue-800 hover:bg-blue-800 hover:text-white ">
+                <div class="flex justify-center text-center w-5/6 my-5 py-2 px-2 border rounded-lg shadow-lg bg-teal-200 text-blue-800 hover:bg-gray-800 hover:text-white ">
                     <label id="acc_logged">####</label>
                 </div>
 
                 <div ondragover="allowDrop(event)" ondrop="drop(event);" class="flex justify-center items-center p-3 text-blue-800 hover:text-blue-800 mt-16 w-full h-24 "><i class="typcn typcn-trash text-6xl "></i></div>
-                <div class="text-blue-600 hover:text-blue-400 mt-20"><i class="typcn typcn-home text-xl" onclick="home(event)"></i> Home</div>
-                <div class="text-blue-600 hover:text-blue-800 "><i class="typcn typcn-cog-outline text-xl "></i> Settings</div>
+                <div class="text-blue-600 hover:text-blue-400 mt-20"><i class="typcn typcn-home text-sm" onclick="home(event)"></i> Home</div>
+                <div class="text-blue-600 hover:text-blue-800 "><i class="typcn typcn-cog-outline text-sm "></i> Settings</div>
                 <div class="hover:text-blue-800 text-sm " id="developer">
                     <b><u>About Developer</u></b><br>
-                    <i class="typcn typcn-mail text-xl "> </i><code>malishak263@gmail.com</code><br>
-                    <i class="typcn typcn-phone text-xl "> </i><code>+263 786 624 278</code><br>
+                    <i class="typcn typcn-mail text-sm "> </i><code>malishak263@gmail.com</code><br>
+                    <i class="typcn typcn-phone text-sm "> </i><code>+263 786 624 278</code><br>
                     <br> <span class="text-xs ">Copyright 2022-2099 by Malvern. I. Kaseke.</span>
                 </div>
             </div>
@@ -121,50 +118,78 @@
         </div>
     </div>
 
-    <div id="wrapper-container3" class="bg-white p-5 w-full hidden">
-        <div class="w-full h-20  p-5 flex flex-wrap items-center text-4xl justify-center">
-            <h2 class="text-blue-800">Scheduler</h2>
-        </div>
+    <div id="wrapper-container3" class="bg-white w-full flex flex-row h-screen  text-sm hidden">
+        <nav class="h-1/3 w-full py-5 px-2 sm:px-5 bg-gray-800 text-white flex justify-between items-center " id="nav" style="height:20vh">
+            <div id="schedulerHeading" class="h-full hidden sm:block">
+                <h1>Scheduler</h1>
+            </div>
+            <div id="schedulerMenu" class=" h-full ml-auto">
+                <a href="#"><i class="typcn typcn-calendar"></i> Calender</a>
+                <a href="#" class="ml-auto"><i class="typcn typcn-input-checked"></i> All Events</a>
 
-        <div class="w-full p-5 flex justify-end">
-            <div class="flex w-2/4 justify-center p-5 items-center ">
-                <div id="task-view" class="w-full">
-                    <div id="tablediv" class="w-full overflow-y-hidden" style="height:50vh;">
+            </div>
+        </nav>
+        <div class="flex justify-start" style="height:65vh" id="wc3">
+            <div class="w-1/2 md:1/3 h-2/3 p-3" id="notificationdiv" style="height: 70vh;">
+                <div id="calendar" class=""></div>
+                <div class="w-full flex justify-center">
+                    <button type="submit" class="bg-white border border-black text-black text-lg rounded-full h-10 w-10 shadow-lg ml-1" id="notifications"><i class="typcn typcn-bell"></i></button>
+                </div>
+                <div id="notification_area" class="w-full overflow-y-hidden" style="height: 30vh;">
+                </div>
+
+            </div>
+
+            <div class="flex w-2/3 h-3/4 lg:block justify-center px-1 md:px-3 items-center shadow-2xl bg-white hidden " id="viewAllEvts ">
+                <div id="task-view" class="w-full h-full">
+                    <h1>View All Events</h1>
+                    <div id="tablediv" class="w-full overflow-y-hidden" style="height: 60vh;">
 
                     </div>
                 </div>
             </div>
-            <div class="flex w-1/3 rounded-tr-lg shadow-2xl justify-center p-5 items-center ">
-                <form class="w-2/3 ">
-                    <div id=" " class=" ">
-                        <label for="task" class="text-sm ">task:</label>
+
+            <div class="w-1/2 lg:w-1/3 h-full rounded-lg ml-5 p-5 shadow-xl" style="min-height: 15em;">
+                <div class="w-full">
+                    <h1 class="mx-auto">Add Events</h1>
+                </div>
+                <form class="w-full mt-2 hidden" id="addEvtForm">
+
+                    <div id="" class="">
+                        <label for="task" class="text-sm">task:</label>
                         <br>
-                        <input type="text" name="task" id="task" placeholder="... " class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                        <input type="text" name="task" id="task" placeholder="..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300">
                     </div>
-                    <div id=" " class=" ">
-                        <label class="text-sm ">start:</label>
+                    <div id="" class="">
+                        <label class="text-sm">start:</label>
                         <br>
-                        <input type="date" name="start_date" id="start_date" placeholder="date..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
-                        <input type="time" name="start_time" id="start_time" placeholder="time..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                        <input type="date" name="start_date" id="start_date" placeholder="date..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300">
+                        <input type="time" name="start_time" id="start_time" placeholder="time..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300">
                     </div>
-                    <div id=" " class=" ">
-                        <label class="text-sm ">end:</label>
+                    <div id="" class="">
+                        <label class="text-sm">end:</label>
                         <br>
-                        <input type="date" name="end_date" id="end_date" placeholder="date..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
-                        <input type="time" name="end_time" id="end_time" placeholder="time..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300 ">
+                        <input type="date" name="end_date" id="end_date" placeholder="date..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300">
+                        <input type="time" name="end_time" id="end_time" placeholder="time..." class="mt-2 px-5 py-2 w-full placeholder-gray-600 rounded outline-none border border-blue-300">
                     </div>
                     <div class="flex justify-around ">
-                        <button type="submit" id="add-event" class="my-2 py-1 px-2 border rounded-lg w-3/6 bg-blue-400 text-white hover:bg-blue-800 ">Set</button>
+                        <button type="submit" id="add-event" class="my-2 py-1 px-2 border rounded-lg w-3/6 bg-blue-400 text-white hover:bg-gray-800">Set</button>
                     </div>
 
                 </form>
+                <div class="flex w-full h-full" id="addEvtFormTrigger">
+                    <div class="flex justify-center items-center m-2 w-full h-full bg-teal-100 rounded-lg shadow-2xl ">
+                        <button title="add new note" id="showAddEvtForm" type="submit" class="bg-gray-800 hover:bg-blue-400 rounded-full h-16 w-16 shadow-lg"><i class="typcn typcn-edit text-xl text-white"></i></button>
+                    </div>
+                </div>
             </div>
-
         </div>
 
-        <div class="flex w-full h-32 justify-end items-end ">
-            <button type="submit" class="bg-blue-400 hover:bg-blue-800 text-white text-xl rounded-full h-16 w-16 shadow-lg ml-1 " id="scheduler_back"><i class="typcn typcn-arrow-back"></i></button>
+        <div class="flex w-full mt-4 pr-3 h-16 ml-auto justify-end items-end sticky bottom-0 " id="scheduler_backdiv">
+            <button type="submit" class="bg-blue-400 hover:bg-gray-800 text-white text-sm rounded-full h-16 w-16 shadow-lg mr-2 " id="scheduler_back"><i class="typcn typcn-arrow-back "></i></button>
         </div>
+
+
     </div>
 
 </body>

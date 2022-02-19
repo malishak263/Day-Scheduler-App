@@ -1,4 +1,4 @@
-class Accounts {
+    class Accounts {
     username;
     password;
     signup() {
@@ -15,7 +15,6 @@ class Accounts {
                     password: this.password.trim()
                 },
                 success: (data) => {
-                    //alert(data.message);
                     $('#signup_name').val('');
                     $('#signup_password').val('');
                     $('#result_msg').html(data.message);
@@ -40,10 +39,8 @@ class Accounts {
                 fail: () => {
                     alert('failed');
                 }
-
             });
         }
-
     }
 
     login() {
@@ -78,17 +75,12 @@ class Accounts {
                         setTimeout(() => {
                             $('#login_page').show();
                         }, 2000);
-
                     }
-
                 },
                 fail: () => {
                     alert('failed');
                 }
-
             });
         }
-
     }
-
 }
