@@ -143,5 +143,23 @@ $('document').ready(() => {
 
     }
 
+    showMain=(event)=>{
+        $('#notificationdiv').show();
+        $('#formDiv').show();
+        $('#viewAllEvts').hide();
+        event.preventDefault();
+    }
+
+    showAllEvts=(event)=>{
+        $('#notificationdiv').hide();
+        $('#formDiv').hide();
+        $('#viewAllEvts').show();
+        event.preventDefault();
+    }
+
+    showBin=()=>{
+       $('#notesBin').show();
+    
+   }
 
 });

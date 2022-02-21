@@ -44,13 +44,13 @@ class Notes {
                     var noteid = i.id;
                     render += `<div class="flex w-1/3 h-1/3">`;
                     render += `<div class="flex justify-center items-center  w-full m-2 bg-white">
-                            <textarea  onchange="updateNote(event,${noteid});" id="${i.id}" class="flex w-full h-full px-5 py-5 rounded-lg shadow-2xl">${i.note}</textarea>
+                            <textarea  onchange="updateNote(event,${noteid});" id="${i.id}" class="flex w-full h-full px-5 py-5 rounded-lg shadow-lg" draggable="true" ondragstart="showBin();">${i.note}</textarea>
                         </div>`;
                     render += `</div>`;
                 });
                 render += `<div class="flex w-1/3 h-1/3 hidden" id="new_note_pad_div">
                         <div class="flex justify-center items-center w-full h-full m-2 bg-white ">
-                            <textarea placeholder="note here.. " onblur="saveNote(event);" id="new_note_pad" class="flex w-full h-full px-5 py-5 rounded-lg shadow-2xl "></textarea>
+                            <textarea placeholder="note here.. " onblur="saveNote(event);" id="new_note_pad" class="flex w-full h-full px-5 py-5 rounded-lg shadow "></textarea>
                         </div>
                     </div>  
                     <div class="flex w-1/3 h-1/3  " id="add_btns">

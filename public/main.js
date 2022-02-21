@@ -30,6 +30,7 @@ $('document').ready(() => {
         notes.deleteNote(noteid);
         $(`#${noteid}`).parentsUntil('#play_ground').remove();
         event.target.style.color = '#062a5a';
+        $('#notesBin').hide();
     }
 
     $('#add-event').click((event) => {
@@ -37,5 +38,10 @@ $('document').ready(() => {
         event.preventDefault();
 
     });
+
+    markAsDone = (event, id) => {
+        tasks.deleteOneTask(id);
+        event.preventDefault()
+    }
 
 });

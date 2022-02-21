@@ -30,7 +30,7 @@ class Tasks {
                 },
                 success: (data) => {
                     //alert(data.message);
-                    $('#notification_area').empty();
+                    //  $('#notification_area').empty();
                     this.getAllTasks();
                 },
                 fail: () => {
@@ -43,8 +43,9 @@ class Tasks {
     }
 
     getAllTasks() {
-
-
+        $('#calendar').html('');
+        $('#notification_area').html('');
+        $('#tablediv').html('');
         this.account = $('#acc_logged').html();
         if (this.account == '####') {
             alert('error');
@@ -56,11 +57,11 @@ class Tasks {
                     account: this.account,
                 },
                 success: (data) => {
-                    let tasklist = data;
-                    var render = '';
+                    var viewAll = '';
                     var events = [];
-                    tasklist.forEach(i => {
-                        render += `<div id="${i.id}" onmouseenter="donecancelShow(event,${i.id});" onmouseleave="donecancelHide(event,${i.id});">
+                    var dueToday = '';
+                    data.forEach(i => {
+                        viewAll += `<div id="${i.id}" onmouseenter="donecancelShow(event,${i.id});" onmouseleave="donecancelHide(event,${i.id});">
                         <table class="border rounded-lg w-full p-3">
                             <caption class="text-black w-full p-2 text-sm">${i.task}</caption>
                             <tr id="theader" class="w-full">
@@ -78,28 +79,29 @@ class Tasks {
                         </table>
                             <div class="w-full  hidden" id="${i.id}+'btns'" >
                                 <div class="flex justify-center mx-auto">
-                                        <button type="submit" id="" class="w-1/3 border rounded-lg p-1 bg-blue-400 text-white hover:bg-gray-800"><i class="typcn typcn-input-checked text-sm "></i>done</button>
+                                        <button type="submit" id="" class="w-1/3 border rounded-lg p-1 bg-blue-400 text-white hover:bg-gray-800" onclick="markAsDone(${i.id});"><i class="typcn typcn-input-checked text-sm "></i>done</button>
                                         <button type="submit" id="" class="w-1/3 border rounded-lg p-1 bg-red-600 text-white hover:bg-red-900" disabled><i class="typcn typcn-trash text-sm "></i>cancel</button>
                                 </div>
                              </div>
                              </div>`;
-                        $('#tablediv').html(render);
-
+                        $('#tablediv').html(viewAll);
 
                         var date = new Date().toISOString().slice(0, 10);
-                        //document.querySelector('#root').innerHTML = date;
                         if (date == i.end_date) {
-                            $('#notification_area').append(`<div class="w-full shadow-lg rounded flex justify-start p-2 "><button type="submit " class="border border-blue-800 bg-white text-blue-800 text-sm rounded-lg h-10 w-10 shadow-lg ml-1 " id="notification_details "><i class="typcn typcn-message "></i></button>
-                            <div class="h-full w-full shadow-lg rounded px-1 flex items-center ml-3 "><label for=" ">${i.task} is due today</label> <button type="submit" id="" class="my-2 py-1 px-2 border rounded-lg w-1/6 ml-auto bg-gray-800 hover:bg-blue-400 text-white"><i class="typcn typcn-tick text-sm "></i></button></div></div>`);
+                            dueToday += `<div class="w-full shadow-lg rounded flex justify-start p-2 ">
+                            <button type="submit " class="border border-blue-800 bg-white text-blue-800 text-sm rounded-lg h-10 w-10 shadow-lg ml-1 " id="notification_details "><i class="typcn typcn-message "></i></button>
+                            <div class="h-full w-full shadow-lg bg-blue-100 rounded px-1 flex items-center ml-3 ">
+                            <label for=" ">${i.task} is due today</label> <button type="submit" id="" onclick="markAsDone(event, ${i.id})" class="my-2 py-1 px-2 border rounded-lg w-1/6 ml-auto bg-gray-800 hover:bg-blue-400 text-white"><i class="typcn typcn-tick text-sm "></i></button>
+                            </div>
+                            </div>`;
+                            $('#notification_area').html(dueToday);
                         }
-
                         var startDateString = i.start_date;
                         startDateString.toString();
                         var newDateString = startDateString.replace(/-/g, ',');
                         events.push({
                             'Date': new Date(newDateString),
                             'Title': i.task,
-                            'Link': 'http://localhost:3000'
                         });
 
                     });
@@ -113,14 +115,11 @@ class Tasks {
                         DateTimeShow: true,
                         DateTimeFormat: 'mmm,yyyy',
                         DateTimeLocation: '',
-                        EventClick: () => {
-                            //  alert('stay organized!!')
-                        },
+                        EventClick: () => {},
                         EventTargetWholeDay: true,
                         DisabledDays: [],
                     };
-
-                    var element = document.getElementById('calendar');
+                    var element = document.querySelector('#calendar');
                     caleandar(element, events, settings);
                 },
                 fail: () => {
@@ -129,5 +128,26 @@ class Tasks {
 
             });
         }
+    }
+
+    deleteOneTask(id) {
+        this.account = $('#acc_logged').html();
+        this.taskId = id;
+        $.ajax({
+            url: '/deleteonetask',
+            method: 'post',
+            data: {
+                account: this.account.trim(),
+                taskId: this.taskId
+            },
+            success: () => {
+                this.getAllTasks();
+            },
+            fail: () => {
+                alert('failed');
+            }
+
+        });
+
     }
 }
