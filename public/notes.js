@@ -42,18 +42,18 @@ class Notes {
                 list.forEach(i => {
 
                     var noteid = i.id;
-                    render += `<div class="flex w-1/3 h-1/3">`;
+                    render += `<div class="flex w-full sm:w-1/3 h-3/4">`;
                     render += `<div class="flex justify-center items-center  w-full m-2 bg-white">
                             <textarea  onchange="updateNote(event,${noteid});" id="${i.id}" class="flex w-full h-full px-5 py-5 rounded-lg shadow-lg" draggable="true" ondragstart="showBin();">${i.note}</textarea>
                         </div>`;
                     render += `</div>`;
                 });
-                render += `<div class="flex w-1/3 h-1/3 hidden" id="new_note_pad_div">
+                render += `<div class="flex w-full sm:w-1/3 h-2/3 hidden" id="new_note_pad_div">
                         <div class="flex justify-center items-center w-full h-full m-2 bg-white ">
                             <textarea placeholder="note here.. " onblur="saveNote(event);" id="new_note_pad" class="flex w-full h-full px-5 py-5 rounded-lg shadow "></textarea>
                         </div>
                     </div>  
-                    <div class="flex w-1/3 h-1/3  " id="add_btns">
+                    <div class="flex w-full sm:w-1/3 h-3/4 " id="add_btns">
                         <div  class="flex justify-center items-center m-2 w-full h-full bg-teal-100 rounded-lg shadow-2xl ">
                             <button title="add new note" id="add_note_btn" type="submit " onclick="showNotepad(event);"   class="bg-blue-400 hover:bg-gray-800 rounded-full h-16 w-16 shadow-lg "><i class="typcn typcn-edit text-xl text-white "></i></button>
                             <button id="notes_back" type="submit"  onclick="home(event)" class="bg-blue-400 hover:bg-gray-800 text-white text-xl rounded-full h-16 w-16 shadow-lg ml-1"><i class="typcn typcn-arrow-back"></i></button>

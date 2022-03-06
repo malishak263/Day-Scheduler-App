@@ -16,6 +16,10 @@ router.post('/', (req, res) => {
                 }
 
                 if (resp.length > 0) {
+                    /*  sess = req.session;
+                     sess.username = username;
+                     sess.password = password;
+                     console.log(sess); */
                     result = {
                         success: true,
                         who_is_logged: { username: username, password: password },
