@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
             if (err) {
                 console.log(err.message);
             }
-            console.log(resp.length + 1);
+           // console.log(resp.length + 1);
             var noteId = resp.length + 1;
             var newNote = new notes({
                 account: account,
@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
                         success: true,
                         message: `note saved!`,
                     }
-                    console.log(result);
+                  //  console.log(result);
                     res.json(result);
                 }
             });
@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
     }
 
     saveNote(req.body.account, req.body.note);
-    console.log(req.body.note);
+   // console.log(req.body.note);
 });
 
 module.exports = router;

@@ -10,9 +10,7 @@ module.exports = connection = () => {
         mongoose.connect(dbUrl, (err, res) => {
             if (err) {
                 console.log(err.message);
-            } else {
-                console.log('connected succussfully');
-            }
+            } 
         });
     } catch (err) {
         console.log(err.message);

@@ -14,8 +14,8 @@ router.post('/', (req, res) => {
                 console.log(err.message);
             }
 
-            console.log(result);
-            console.log(resp);
+           // console.log(result);
+           // console.log(resp);
 
             let notesArray = [];
             resp.forEach(i => {

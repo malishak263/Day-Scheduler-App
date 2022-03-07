@@ -22,16 +22,13 @@ router.post('/', (req, res) => {
 
                     if (err) {
                         console.log(err.message);
-                    }
-                    if (err) {
-                        console.log(err);
                     } else {
 
                         result = {
                             success: true,
                             message: `${username} is successfully saved!`
                         }
-                        console.log(result);
+                        //console.log(result);
                         res.json(result);
                     }
                 })
@@ -40,7 +37,7 @@ router.post('/', (req, res) => {
                     success: false,
                     message: `username is used by another account!`
                 }
-                console.log(result);
+              //  console.log(result);
                 res.json(result);
 
 

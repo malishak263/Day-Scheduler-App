@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
             if (err) {
                 console.log(err.message);
             }
-            console.log(resp);
+           // console.log(resp);
             result = {
                 success: true,
                 message: 'note deleted',

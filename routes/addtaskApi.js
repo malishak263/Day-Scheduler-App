@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
             if (err) {
                 console.log(err.message);
             }
-            console.log(resp.length + 1);
+           // console.log(resp.length + 1);
             var taskId = resp.length + 1;
             var newTask= new tasks({
                 account: account,
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
                         success: true,
                         message: `task added!`,
                     }
-                    console.log(result);
+                    //console.log(result);
                     res.json(result);
                 }
             });

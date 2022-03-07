@@ -26,14 +26,14 @@ router.post('/', (req, res) => {
                         message: `${username} is now logged in!`
                     }
                     res.json(result);
-                    console.log(result);
+                    //  console.log(result);
                 } else {
                     result = {
                         success: false,
                         message: `login failed, please create account!`
                     }
                     res.json(result);
-                    console.log(result);
+                    //console.log(result);
                 }
 
 
@@ -42,7 +42,6 @@ router.post('/', (req, res) => {
             console.log(err);
         }
     }
-    console.log(req.body.username);
 
     login(req.body.username, req.body.password);
 });

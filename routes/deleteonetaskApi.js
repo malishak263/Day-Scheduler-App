@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
             if (err) {
                 console.log(err.message);
             }
-            console.log(resp);
+           // console.log(resp);
             var result = {
                 success: true,
                 message: 'task deleted',
